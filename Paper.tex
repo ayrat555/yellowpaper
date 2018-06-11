@@ -1835,7 +1835,7 @@ C_\text{\tiny SSTORE}(\boldsymbol{\sigma}, \boldsymbol{\mu}) & \text{if} \quad w
 G_{exp} & \text{if} \quad w = \text{\small EXP} \wedge \boldsymbol{\mu}_{\mathbf{s}}[1] = 0 \\
 G_{exp} + G_{expbyte}\times(1+\lfloor\log_{256}(\boldsymbol{\mu}_{\mathbf{s}}[1])\rfloor) & \text{if} \quad w = \text{\small EXP} \wedge \boldsymbol{\mu}_{\mathbf{s}}[1] > 0 \\
 G_{verylow} + G_{copy}\times\lceil\boldsymbol{\mu}_{\mathbf{s}}[2] \div 32\rceil & \text{if} \quad w = \text{\small CALLDATACOPY} \> \lor \\
-&\quad\text{\small CODECOPY} \lor \text{\small RETURNDATACOPY} \\
+&\quad\text{\small CODECOPY} \lor \text{\small RETURNDATACOPY}  \\
 G_{extcode} + G_{copy}\times\lceil\boldsymbol{\mu}_{\mathbf{s}}[3] \div 32\rceil & \text{if} \quad w = \text{\small EXTCODECOPY} \\
 G_{log}+G_{logdata}\times\boldsymbol{\mu}_{\mathbf{s}}[1] & \text{if} \quad w = \text{\small LOG0} \\
 G_{log}+G_{logdata}\times\boldsymbol{\mu}_{\mathbf{s}}[1]+G_{logtopic} & \text{if} \quad w = \text{\small LOG1} \\
@@ -1843,7 +1843,7 @@ G_{log}+G_{logdata}\times\boldsymbol{\mu}_{\mathbf{s}}[1]+2G_{logtopic} & \text{
 G_{log}+G_{logdata}\times\boldsymbol{\mu}_{\mathbf{s}}[1]+3G_{logtopic} & \text{if} \quad w = \text{\small LOG3} \\
 G_{log}+G_{logdata}\times\boldsymbol{\mu}_{\mathbf{s}}[1]+4G_{logtopic} & \text{if} \quad w = \text{\small LOG4} \\
 C_\text{\tiny CALL}(\boldsymbol{\sigma}, \boldsymbol{\mu}) & \text{if} \quad w = \text{\small CALL} \lor \text{\small CALLCODE} \> \lor \\
-&\quad\text{\small DELEGATECALL} \\
+&\quad\text{\small DELEGATECALL} \lor \text{\small STATICCALL} \\
 C_\text{\tiny SELFDESTRUCT}(\boldsymbol{\sigma}, \boldsymbol{\mu}) & \text{if} \quad w = \text{\small SELFDESTRUCT} \\
 G_{create} & \text{if} \quad w = \text{\small CREATE}\\
 G_{sha3}+G_{sha3word} \lceil \mathbf{s}[1] \div 32 \rceil & \text{if} \quad w = \text{\small SHA3}\\
